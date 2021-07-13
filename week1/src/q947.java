@@ -1,7 +1,7 @@
 import java.util.HashMap;
 import java.util.Map;
 
-class Solution {
+class q947 {
     public int removeStones(int[][] stones) {
         UnionFind unionFind = new UnionFind();
 
@@ -52,6 +52,6 @@ class Solution {
     }
 
     public static void main(String[] args) {
-        Solution solution = new Solution();
+        q947 q = new q947();
     }
 }
