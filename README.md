@@ -8,3 +8,5 @@
 ### 7.15
 #### [399. 除法求值](https://leetcode-cn.com/problems/evaluate-division/)
 #### [839. 相似字符串组](https://leetcode-cn.com/problems/similar-string-groups/)
+### 7.16
+#### [952. 按公因数计算最大组件大小](https://leetcode-cn.com/problems/largest-component-size-by-common-factor/)
