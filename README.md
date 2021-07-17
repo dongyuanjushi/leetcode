@@ -10,3 +10,9 @@
 #### [839. 相似字符串组](https://leetcode-cn.com/problems/similar-string-groups/)
 ### 7.16
 #### [952. 按公因数计算最大组件大小](https://leetcode-cn.com/problems/largest-component-size-by-common-factor/)
+
+### 7.17
+
+#### [990. 等式方程的可满足性](https://leetcode-cn.com/problems/satisfiability-of-equality-equations/)
+
+#### [721. 账户合并](https://leetcode-cn.com/problems/accounts-merge/)
