@@ -39,30 +39,39 @@ public class C250 {
     }
 
     /**
-     * Medium: TLE? 155/157
+     * Medium: TLE 155/157 -> 157/157
+     * 时间复杂度: O(nm^2->nm)
+     * 空间复杂度: O(n)
+     * 状态转移去绝对值+前后缀压缩
      */
     private class sol3 {
         public long maxPoints(int[][] points) {
             int m = points.length;
             int n = points[0].length;
-            int[][] dp = new int[2][n];
+            long[][] dp = new long[2][n];
             for (int i = 0; i < n; i++) {
                 dp[0][i] = points[0][i];
             }
             for (int i = 1; i < m; i++) {
+                long t = dp[0][0];
                 for (int j = 0; j < n; j++) {
-                    for (int k = 0; k < n; k++) {
-                        dp[1][j] = Math.max(dp[1][j], dp[0][k] + points[i][j] - Math.abs(k - j));
-                    }
+                    t = Math.max(t, dp[0][j] + j);
+                    dp[1][j] = points[i][j] - j + t;
+                }
+                t = dp[0][n - 1] - (n - 1);
+                for (int j = n - 2; j >= 0; j--) {
+                    dp[1][j] = Math.max(dp[1][j], points[i][j] + j + t);
+                    t = Math.max(t, dp[0][j] - j);
+                }
+                for (int j = 0; j < n; j++) {
                     dp[0][j] = dp[1][j];
                 }
             }
             int idx = m > 1 ? 1 : 0;
-            int res = dp[idx][0];
+            long res = dp[idx][0];
             for (int i = 1; i < n; i++) {
                 res = Math.max(res, dp[idx][i]);
             }
-            System.out.println(res);
             return res;
         }
     }
