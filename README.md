@@ -13,5 +13,6 @@
 ### 7.17
 #### [990. 等式方程的可满足性](https://leetcode-cn.com/problems/satisfiability-of-equality-equations/)
 #### [721. 账户合并](https://leetcode-cn.com/problems/accounts-merge/)
-### 7.18
-Contest250 2/4
+### 7.18 Contest250(2/4)
+#### [5815. 扣分后的最大得分](https://leetcode-cn.com/problems/maximum-number-of-points-with-cost/)
+#### [5816. 查询最大基因差](https://leetcode-cn.com/problems/maximum-genetic-difference-query/) //TODO
