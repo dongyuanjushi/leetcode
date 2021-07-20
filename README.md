@@ -16,9 +16,6 @@
 ### 7.18 Contest250(2/4)
 #### [5815. 扣分后的最大得分](https://leetcode-cn.com/problems/maximum-number-of-points-with-cost/)
 #### [5816. 查询最大基因差](https://leetcode-cn.com/problems/maximum-genetic-difference-query/) //TODO
-
 ### 7.19
-
 #### [42. 接雨水](https://leetcode-cn.com/problems/trapping-rain-water/)
-
 #### [1130. 叶值的最小代价生成树](https://leetcode-cn.com/problems/minimum-cost-tree-from-leaf-values/)
