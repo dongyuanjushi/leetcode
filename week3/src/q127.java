@@ -2,41 +2,49 @@ import java.util.*;
 
 public class q127 {
     public int ladderLength(String beginWord, String endWord, List<String> wordList) {
-        Set<String> wordSet=new HashSet<>(wordList);
-        if(wordSet.size()==0||!wordSet.contains(endWord)) return 0;
-        Queue<String> queue=new LinkedList<>();
-        Set<String> visited=new HashSet<>();
-        int step=1;
+        Set<String> wordSet = new HashSet<>(wordList);
+        if (wordSet.size() == 0 || !wordSet.contains(endWord)) return 0;
+        Queue<String> frontQueue = new LinkedList<>();
+        Queue<String> backQueue = new LinkedList<>();
         wordSet.remove(beginWord);
-        queue.add(beginWord);
-        while (!queue.isEmpty()){
-            int size=queue.size();
-            for(int i=0;i<size;i++){
-                String current=queue.poll();
-                if(change(current,endWord,wordSet,queue,visited)) return step+1;
+        frontQueue.add(beginWord);
+        backQueue.add(endWord);
+        Map<String, Integer> frontMap = new HashMap<>();
+        Map<String, Integer> backMap = new HashMap<>();
+        frontMap.put(beginWord, 1);
+        backMap.put(endWord, 1);
+        while (!frontQueue.isEmpty() && !backQueue.isEmpty()) {
+            int ans;
+            if (frontQueue.size() <= backQueue.size()) {
+                ans = update(wordSet,frontQueue,frontMap,backMap);
+            } else {
+                ans = update(wordSet,backQueue,backMap,frontMap);
             }
-            step++;
+            if (ans != 0) return ans;
         }
         return 0;
     }
-    private boolean change(String current,String end,Set<String> wordSet,Queue<String> queue,Set<String> visited){
-        char [] word=current.toCharArray();
-        for(int i=0;i<word.length;i++){
-            char c=word[i];
-            for(char j='a';j<='z';j++){
-                if(j==c) continue;
-                word[i]=j;
-                String next=String.valueOf(word);
-                if(wordSet.contains(next)){
-                    if(next.equals(end)) return true;
-                    if(!visited.contains(next)){
-                        queue.add(next);
-                        visited.add(next);
-                    }
+
+    private int update(Set<String> wordSet, Queue<String> currentQueue, Map<String, Integer> currentMap, Map<String, Integer> otherMap) {
+        String currentWord = currentQueue.poll();
+        int step = currentMap.get(currentWord);
+        assert currentWord != null;
+        char[] letters = currentWord.toCharArray();
+        for (int i = 0; i < letters.length; i++) {
+            char current = letters[i];
+            for (char c = 'a'; c <= 'z'; c++) {
+                if (c == current) continue;
+                letters[i] = c;
+                String next = String.valueOf(letters);
+                if (wordSet.contains(next)) {
+                    if (currentMap.containsKey(next)) continue;
+                    if (otherMap.containsKey(next)) return step + otherMap.get(next);
+                    currentQueue.add(next);
+                    currentMap.put(next, step + 1);
                 }
             }
-            word[i]=c;
+            letters[i] = current;
         }
-        return false;
+        return 0;
     }
 }
