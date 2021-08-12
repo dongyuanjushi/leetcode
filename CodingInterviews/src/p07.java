@@ -11,7 +11,7 @@ class TreeNode {
     }
 }
 
-public class q07 {
+public class p07 {
     int[] preorder;
     HashMap<Integer, Integer> dic = new HashMap<>();
     public TreeNode buildTree(int[] preorder, int[] inorder) {

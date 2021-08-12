@@ -1,4 +1,4 @@
-public class q04 {
+public class p04 {
     public boolean findNumberIn2DArray(int[][] matrix, int target) {
         int m = matrix.length;
         if(m==0) return false;

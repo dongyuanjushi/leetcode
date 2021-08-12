@@ -1,4 +1,4 @@
-public class q03 {
+public class p03 {
     public int findRepeatNumber(int[] nums) {
         int i = 0;
         while(i < nums.length) {
@@ -15,7 +15,7 @@ public class q03 {
     }
 
     public static void main(String[] args) {
-        q03 q = new q03();
+        p03 q = new p03();
         int[] nums = {2, 3, 1, 0, 2, 5, 3};
         System.out.println(q.findRepeatNumber(nums));
     }
