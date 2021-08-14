@@ -1,0 +1,6 @@
+out/
+CodingInterviews/src/*.exe
+CodingInterviews/src/main
+.vscode/
+.idea/
+*.iml
