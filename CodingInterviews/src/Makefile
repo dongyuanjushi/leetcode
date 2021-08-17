@@ -1,4 +1,4 @@
-prob_id=30
+prob_id=37
 all:main
 	g++ -o main p${prob_id}.cpp
 debug:
